@@ -14,17 +14,62 @@ puts "Destroying existing airlines..."
 Airline.destroy_all
 
 puts "Creating airlines ✈️"
-klm = {name: "KLM"}
-transavia = {name: "Transavia"}
-easyjet = {name: "EasyJet"}
-wizzair = {name: "WizzAir"}
-lufthansa = {name: "Lufthansa"}
+
+klm = {
+  name: "KLM",
+  contact_info: "https://www.klm.nl/en/contact",
+  description: "KLM is the flag carrier airline of the Netherlands, founded in 1919. It is known for being the oldest airline still operating under its original name. KLM operates a vast network of international and domestic flights, with a focus on customer service and sustainability."
+}
+# klm.logo.attach(io: File.open('app/assets/images/seeds/klm-4.svg'), filename: 'klm-4.svg', content_type: 'image/svg+xml')
+
+transavia = {
+  name: "Transavia",
+  contact_info: "https://www.transavia.com/help/en-nl/contact",
+  description: "Transavia is a Dutch low-cost airline, part of the Air France-KLM Group, mainly serving leisure destinations across Europe and the Mediterranean. Known for affordable flights, it operates from hubs in Amsterdam, Rotterdam, and Eindhoven. Visit their website for more details."
+}
+
+easyjet = {
+  name: "EasyJet",
+  contact_info: "https://www.easyjet.com/en/help/contact",
+  description: "EasyJet is a British low-cost airline founded in 1995. It operates on more than 1,000 routes across Europe and several other countries. The airline is known for its no-frills approach, offering affordable flights and a focus on efficiency."
+}
+
+wizzair = {
+  name: "WizzAir",
+  contact_info: "https://wizzair.com/en-gb/information-and-services/contact/contact-us",
+  description: "Wizz Air is a Hungarian low-cost airline founded in 2003. It serves many destinations across Europe, as well as some in the Middle East. Wizz Air is known for its focus on Central and Eastern Europe, offering low-cost travel options with a young and efficient fleet."
+}
+
+lufthansa = {
+  name: "Lufthansa",
+  contact_info: "https://www.lufthansa.com/am/en/help-and-contact",
+  description: "Lufthansa is the largest German airline and, when combined with its subsidiaries, the second-largest airline in Europe. Founded in 1953, Lufthansa is a major international carrier with a global network of destinations and is known for its premium service and innovation in aviation."
+}
 
 [klm, transavia, easyjet, wizzair, lufthansa].each do |attributes|
   airline = Airline.create(attributes)
   puts "#{airline.name} has been added to Airlines. ✈️"
-end
 
+  logo_path = case airline.name
+              when "KLM"
+                'app/assets/images/seeds/klm-1.svg'
+              when "Transavia"
+                'app/assets/images/seeds/transavia-2.svg'
+              when "EasyJet"
+                'app/assets/images/seeds/easyjet-3.svg'
+              when "WizzAir"
+                'app/assets/images/seeds/wizzair-4.svg'
+              when "Lufthansa"
+                'app/assets/images/seeds/lufthansa-5.svg'
+              else
+                nil
+              end
+
+  if logo_path
+    airline.logo.attach(io: File.open(logo_path), filename: File.basename(logo_path), content_type: 'image/svg+xml')
+    puts "Logo for #{airline.name} has been attached."
+  end
+end
 # SEEDS FOR POLICY MODEL
 
 puts "Destroying existing policies..."
