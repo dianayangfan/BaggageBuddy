@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :airlines, only: [:show]
+  resources :airlines, only: [:index, :show]
 
   resources :users, only: [:edit, :update]
   get 'profile', to: "users#profile"
