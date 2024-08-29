@@ -11,8 +11,16 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :airlines, only: [:show]
   resources :users, only: [:edit, :update]
+
   get 'profile', to: "users#profile"
 
+  # policies MVC
   resources :policies, only: [:show]
   get 'airlines/:id/policies/:id', to: "policies#show", as: :airline_policy
+<<<<<<< HEAD
+=======
+
+  get 'search_airlines', to: "airlines#search", as: 'search_airlines'
+  get 'search_suggestions', to: "airlines#search_suggestions"
+>>>>>>> master
 end
