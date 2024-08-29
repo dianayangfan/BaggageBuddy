@@ -30,6 +30,10 @@
   margin: 0 10px;
 }
 
+.nav-item a {
+  color: white !important;
+}
+
 .nav-links a {
   text-decoration: none;
   color: #002D73;
@@ -39,12 +43,7 @@
 .nav-links a:hover {
   color: #14A0E6;
 }
-.login-button {
-  background-color: #DFE5ED;
-  border-radius: 40px;
-  padding: 10px 30px;
-  text-align: center;
-}
+
 
 .logo img {
   max-width: 200px;
