@@ -1,3 +1,7 @@
+<div>
+  <%= image_tag 'banner.jpg', alt: 'banner', class: 'banner'%>
+</div>
+
 <div data-controller="search-dropdown">
   <%= form_with url: search_airlines_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
