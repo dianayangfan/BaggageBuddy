@@ -1,11 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
- <%= form_with url: airlines_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Enter airline name"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+<div data-controller="search-dropdown">
+  <%= form_with url: search_airlines_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Enter airline name",
+          data: { action: "input->search-dropdown#search", target: "search-dropdown.query" }
+    %>
+    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
+  <div data-target="search-dropdown.results" class="dropdown-menu show" style="display: none;"></div>
+</div>
