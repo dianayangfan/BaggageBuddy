@@ -31,7 +31,7 @@
 }
 
 .nav-item a {
-  color: white !important;
+  color: white;
 }
 
 .nav-links a {
@@ -51,4 +51,9 @@
   height: 60px;
   object-fit: cover;
   padding-left: 20px;
+}
+
+.dropdown-menu {
+  border-color: rgba(255, 255, 255, 0);
+  text-align: center;
 }
