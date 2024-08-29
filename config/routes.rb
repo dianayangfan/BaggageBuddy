@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   get 'profile', to: "users#profile"
+
+  resources :policies, only: [:show]
+get 'airlines/:id/policies/:id', to: "policies#show", as: :airline_policy
 end
