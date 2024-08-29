@@ -1,2 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="subscribe-container">
+  <div class="subscribe-content">
+    <h2>Subscribe to our newsletter</h2>
+    <p>Get the latest news and updates from our website</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  <div>
+    <a class="subscribe-image" href="#">
+      <%= image_tag 'mail.png', alt: 'subscribe' %>
+    </a>
+  </div>
+</div>
