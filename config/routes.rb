@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   resources :airlines, only: [:show]
 
   resources :users, only: [:edit, :update]
+
   get 'profile', to: "users#profile"
+  get 'search_airlines', to: "airlines#search", as: 'search_airlines'
+  get 'search_suggestions', to: "airlines#search_suggestions"
 end
