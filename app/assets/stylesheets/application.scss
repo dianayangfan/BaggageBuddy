@@ -11,10 +11,5 @@
 @import "components/index";
 @import "pages/index";
 @import "components/subscribe_form";
-
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
+@import "components/text";
+@import "components/button";

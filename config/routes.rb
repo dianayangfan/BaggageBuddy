@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   resources :airlines, only: [:show]
 
   resources :users, only: [:edit, :update]
+
   get 'profile', to: "users#profile"
 
   resources :policies, only: [:show]
-get 'airlines/:id/policies/:id', to: "policies#show", as: :airline_policy
+  get 'airlines/:id/policies/:id', to: "policies#show", as: :airline_policy
+  
+  get 'search_airlines', to: "airlines#search", as: 'search_airlines'
+  get 'search_suggestions', to: "airlines#search_suggestions"
 end
