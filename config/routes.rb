@@ -9,15 +9,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :airlines, only: [:show]
+
+  resources :airlines, only: [:show] do
+    resources :policies, only: [:show] do
+      resources :favorites, only: [:create, :destroy]
+    end
+  end
 
   resources :users, only: [:edit, :update]
 
-  get 'profile', to: "users#profile"
-
-  # policies MVC
-  resources :policies, only: [:show]
-  get 'airlines/:id/policies/:id', to: "policies#show", as: :airline_policy
+  get 'profile', to: "users#profile", as: :user_profile
+  get 'favorites', to: "favorites#profile", as: :favorites_profile
 
   get 'search_airlines', to: "airlines#search", as: 'search_airlines'
   get 'search_suggestions', to: "airlines#search_suggestions"

@@ -3,3 +3,13 @@
 <p>Edit my details: <%= link_to "Edit", edit_user_registration_path %></p>
 
 <p>Favorite policies will go here</p>
+<p><strong>Favorites</strong></p>
+
+<ul class='list-group'>
+  <% @user.favorites.each do |favorite| %>
+    <li class="list-group-item">
+    <%= favorite.policy.title %>
+    <%= button_to 'Delete', airline_policy_favorite_path(favorite.policy.airline, favorite.policy, favorite), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
