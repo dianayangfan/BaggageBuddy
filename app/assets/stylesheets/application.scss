@@ -13,3 +13,13 @@
 @import "components/subscribe_form";
 @import "components/text";
 @import "components/button";
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
