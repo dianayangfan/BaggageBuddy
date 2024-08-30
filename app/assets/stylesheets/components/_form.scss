@@ -1,34 +1,62 @@
 
+.form-container {
+  margin: 0px 80px 20px 80px;
+  padding: 20px;
+}
+
+.form-container h2 {
+  color: #002D73;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
 
+.form-small {
+  width: 500px;
+  margin: auto;
+}
+
+.shared-link a{
+  text-decoration: none;
+  color: rgb(135, 134, 134);
+}
+
+.shared-link {
+  margin-top: 25px;
+}
+
+.form-text-p {
+  text-decoration: none;
+  color: #002D73;
+}
 
 
-// .form-container {
-//   margin: 0px 80px 20px 80px;
-//   padding: 20px;
-// }
+.button {
+  padding: 10px 20px;
+  background-color: #14A0E6;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+width: 120px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
 
-// .form-container h1 {
-//   color: #81ad40;
-//   font-weight: bold;
-//   font-size: 1.5em;
-//   margin-top: 0;
-// }
+.button:hover {
+  background-color: #1185c0;
+  }
 
-// .form-button {
-//   background-color:#81ad40;
-// }
 
-// .form-small {
-//   width: 500px;
-//   margin: auto;
-// }
-
-// .shared-link a{
-//   text-decoration: none;
-//   color: rgb(135, 134, 134);
-// }
-
-// .shared-link {
-//   margin-top: 25px;
-// }
+.two-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
