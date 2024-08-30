@@ -1,13 +1,57 @@
-<h1>Welcome to the Airline Show Page for <%= @airline.name %></h1>
+<div class="airline-info-container">
+  <div class="flex-container">
+<%# BIG CARD WITH GENERAL POLICY %>
+    <div class="card">
+      <div class="card-section">
+        <% @cabin_policy.each do |policy| %>
+          <div class="policy-item">
+            <h2><%= policy.category %> | <%= policy.title %>:</h2>
+            <p><%= policy.content %></p>
+          </div>
+        <% end %>
+      </div>
 
+      <div class="card-section">
+        <% @checked_policy.each do |policy| %>
+          <div class="policy-item">
+            <h2><%= policy.category %> | <%= policy.title %>:</h2>
+            <p><%= policy.content %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-<% @policies.each do |policy| %>
- <p><strong><%= policy.category %> | <%= policy.title %>:</strong></p>
- <p><%= policy.content %></p>
+<%# AIRLINE CARD WITH LOGO AND CONTACT INFO %>
+    <div class="info-card policy-card">
+      <div class="airline-logo">
+        <%# <%= image_tag @airline.logo, alt: "#{@airline.name} Logo" if @airline.logo.attached? %>
+        <%= image_tag 'klm.jpeg', alt: 'Icon' %>
+      </div>
+      <div class="airline-contact">
+        <h2><%= @airline.name %></h2>
+        <p><strong>Contact Info:</strong> <a href="<%= @airline.contact_info %>"><%= @airline.contact_info %></a></p>
+        <p><%= @airline.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_with url: airline_policy_favorites_path(@airline, policy), method: :post do %>
+<%# SMALL CARDS FOR CATEGORIES %>
 
-  <%= submit_tag 'Add to Favorites', class: 'btn btn-primary' %>
-<% end %>
-
-<% end %>
+<div class="policy-container">
+  <% @special_policy.each do |policy| %>
+    <div class="policy-card">
+      <div class="policy-header">
+        <h2><%= policy.category %> | <%= policy.title %></h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-content">
+          <p><%= policy.content %></p>
+        </div>
+        <div class="policy-icon">
+          <%= image_tag 'dog.png', alt: 'Icon' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
