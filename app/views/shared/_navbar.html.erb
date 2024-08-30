@@ -7,7 +7,21 @@
     </div>
     <ul class="nav-links">
       <li class="nav-item">
-        <a class="button" href="#"><i class="fa-solid fa-user"></i> Log in</a>
+      <div class="dropdown">
+        <% if user_signed_in? %>
+            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user"></i> My Account
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li class="dropdown-item"> <%= link_to "Profile", user_profile_path %></li>
+              <li class="dropdown-item"> <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %> </li>
+            </ul>
+          <% else %>
+            <li class="nav-item">
+              <a class="button" href="<%= new_user_session_path %>"><i class="fa-solid fa-user"></i> Login</a>
+            </li>
+        <% end %>
+      </div>
       </li>
     </ul>
   </div>
