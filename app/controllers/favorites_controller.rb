@@ -17,10 +17,9 @@ class FavoritesController < ApplicationController
 
     if @favorite.save
       flash[:notice] = "Policy has been added to your favorites."
-      redirect_to airline_policy_path(@policy.airline, @policy)
+      redirect_to user_profile_path
     else
       flash[:alert] = "Unable to add policy to favorites."
-      redirect_to airline_policy_path(@policy.airline, @policy), status: :unprocessable_entity
     end
   end
 

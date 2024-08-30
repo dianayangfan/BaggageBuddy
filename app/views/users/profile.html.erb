@@ -1,10 +1,8 @@
-<h1>Welcome <%= @user.email %>! This is your user profile.</h1>
+<h1>Welcome <%= @user.email %>!</h1>
 
 <p>Edit my details: <%= link_to "Edit", edit_user_registration_path %></p>
 
-<p>Favorite policies will go here</p>
 <p><strong>Favorites</strong></p>
-
 <ul class='list-group'>
   <% @user.favorites.each do |favorite| %>
     <li class="list-group-item">
