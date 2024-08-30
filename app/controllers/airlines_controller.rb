@@ -3,7 +3,11 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
+    @airlines = Airline.all
     @policies = Policy.where(airline_id: @airline)
+    @cabin_policy = Policy.where(airline_id: @airline, category: "cabin baggage")
+    @checked_policy = Policy.where(airline_id: @airline, category: "checked baggage")
+    @special_policy = Policy.where(airline_id: @airline, category: "special baggage")
   end
 
   def search
