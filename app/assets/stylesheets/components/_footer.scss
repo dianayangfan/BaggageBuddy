@@ -1,6 +1,6 @@
 .footer {
   background-color: #F2F2F2;
-  padding: 20px;
+  padding: 40px;
 }
 
 .footer-content {
@@ -8,6 +8,9 @@
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
+  p {
+    padding: 0;
+  }
 }
 
 .footer-links {
