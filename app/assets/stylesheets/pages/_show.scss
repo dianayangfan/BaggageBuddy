@@ -34,7 +34,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
 }
 
 .policy-content {
@@ -48,27 +47,32 @@
   display: flex;
   justify-content: flex-end;
   align-content: flex-end;
-  position: relative;
   box-sizing: border-box;
 
   img {
   max-width: 120px;
   height: auto;
   position: absolute;
-  bottom: -216px;
-  left: -30px;
+  bottom:  5px;
+  right: 20px;
   }
 }
 
 .favorites-icon {
   position: absolute;
-  top: 180px;
-  right: 310px;
+
+  bottom: 20px;
+  left: 23px;
   cursor: pointer;
   background-color:#ffffff;
   border: none;
+  color: #F50071;
+
 }
 
+.favorites-icon:hover {
+  color: #14A0E6;
+}
 
 //BIG CARD WITH GENERAL POLICY
 
@@ -102,22 +106,36 @@
 
 .policy-item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
+  text-align: left;
+  margin-left: 0;
+  padding: 0;
+  margin-top: 20px;
 
   h2 {
   flex: 1;
-  text-align: left;
+  text-align: center;
   color: white;
-  margin: 0;
+  margin-bottom: 10px;
   }
   p {
     flex: 1;
-    text-align: right;
+    text-align: left;
     color: white;
     margin: 0;
   }
+}
+
+#favorites-icon-for-blue-page {
+  background-color: #14A0E6;
+  color: white;
+}
+
+#favorites-icon-for-blue-page:hover {
+  color: #F50071;
 }
 
 
@@ -144,7 +162,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 20px;
   h2 {
     text-align: center;
   }
@@ -156,20 +173,15 @@
 
 .flex-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 2fr 1fr;
   gap: 40px;
   justify-content: space-between;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 0 70px;
   margin-bottom: 40px;
 }
 
 .flex-container > :first-child {
   justify-self: start; /* Align the first element to the start (left) */
-}
-
-.flex-container > :last-child {
-  justify-self: end; /* Align the last element to the end (right) */
 }
 
 // CAROUSEL
@@ -179,12 +191,40 @@
 }
 
 // RESPONSIVENESS
-@media (max-width: 768px) {
+@media (max-width: 1310px) {
   .flex-container {
-    // grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     padding: 10px 20px;
   }
+
+  .info-card {
+    padding: 10px 20px;
+    justify-content: center; /* Center horizontally */
+    align-self: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    max-width: 100%;
+
+  }
+
+
+  .policy-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .policy-card {
+    width: 100%;
+  }
 }
+@media (max-width: 950px) {
+  .policy-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 @media (max-width: 600px) {
   .policy-card {
@@ -192,23 +232,15 @@
     height: auto;
   }
 
-  .policy-icon img {
-    max-width: 80px;
-    bottom: 10px;
-    left: 10px;
+  .favorites-icon {
+    right: 30px;
+    top: 25px;
+    bottom: unset;
+    left: unset;
   }
 
-  .policy-item {
-    flex-direction: column;
-    max-width: 500px;
-    align-items: center;
-    justify-content: flex-start;
-    height: 230px;
-    p {
-      font-size: 14px;
-    }
-    h2 {
-      font-size: 20px;
-    }
+  .policy-icon img {
+    max-width: 80px;
   }
+
 }
