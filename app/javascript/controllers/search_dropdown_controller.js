@@ -18,7 +18,10 @@ export default class extends Controller {
     }
 
     fetch(`/search_suggestions?query=${query}`)
-      .then(response => response.json())
+    .then(response => {
+      console.log("Raw response:", response);
+      return response.json();
+    })
       .then(data => {
         console.log("Data received:", data);
         if (data.length > 0) {

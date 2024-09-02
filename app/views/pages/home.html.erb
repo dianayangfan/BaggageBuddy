@@ -17,40 +17,6 @@
 </div>
 
 <%# CAROUSEL %>
-<div id="infoCardCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <% @airlines.each_slice(3).with_index do |airline_group, index| %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <div class="container">
-          <div class="row justify-content-center">
-            <% airline_group.each do |airline| %>
-              <div class="col-md-4 d-flex align-items-stretch">
-                <div class="info-card policy-card ml-3">
-                  <div class="airline-logo">
-                    <%= image_tag airline.logo.attached? ? url_for(airline.logo) : 'klm.jpeg', alt: "#{airline.name} Logo" %>
-                  </div>
-                  <div class="airline-contact">
-                    <h2><%= airline.name %></h2>
-                    <p><strong>Contact Info:</strong> <a href="<%= airline.contact_info %>"><%= airline.contact_info %></a></p>
-                    <p><%= airline.description %></p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <a class="carousel-control-prev" href="#infoCardCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#infoCardCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
 
 <%# SUBSCRIBE SECTION %>
