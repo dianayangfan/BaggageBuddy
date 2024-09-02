@@ -30,7 +30,7 @@
     <div class="info-card policy-card">
       <div class="airline-logo">
         <%# <%= image_tag @airline.logo, alt: "#{@airline.name} Logo" if @airline.logo.attached? %>
-        <%= image_tag 'klm.jpeg', alt: 'Icon' %>
+        <%= cl_image_tag @airline.logo.key, alt: '#{@airline.name} Logo' %>
       </div>
       <div class="airline-contact">
         <h2><%= @airline.name %></h2>

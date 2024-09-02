@@ -70,6 +70,7 @@ lufthansa = {
     puts "Logo for #{airline.name} has been attached."
   end
 end
+
 # SEEDS FOR POLICY MODEL
 
 puts "Destroying existing policies..."
