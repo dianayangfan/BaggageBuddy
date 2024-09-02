@@ -1,5 +1,5 @@
 class AirlinesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [ :show, :search, :search_suggestions]
 
   def show
     @airline = Airline.find(params[:id])
