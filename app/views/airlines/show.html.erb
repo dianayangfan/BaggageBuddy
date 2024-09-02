@@ -5,7 +5,7 @@
       <div class="card-section">
         <% @cabin_policy.each do |policy| %>
           <div class="policy-item">
-            <h2><%= policy.category %> | <%= policy.title %>:</h2>
+            <h2><%= policy.title %>:</h2>
             <p><%= policy.content %></p>
           </div>
         <% end %>
@@ -14,7 +14,7 @@
       <div class="card-section">
         <% @checked_policy.each do |policy| %>
           <div class="policy-item">
-            <h2><%= policy.category %> | <%= policy.title %>:</h2>
+            <h2><%= policy.title %>:</h2>
             <p><%= policy.content %></p>
           </div>
         <% end %>
@@ -42,7 +42,7 @@
   <% @special_policy.each do |policy| %>
     <div class="policy-card">
       <div class="policy-header">
-        <h2><%= policy.category %> | <%= policy.title %></h2>
+        <h2><%= policy.title %></h2>
       </div>
       <div class="policy-body">
         <div class="policy-content">
@@ -51,8 +51,7 @@
         <div class="policy-icon">
           <%= image_tag 'dog.png', alt: 'Icon' %>
             <%= form_with url: airline_policy_favorites_path(@airline, policy), method: :post do %>
-
-              <%= submit_tag '❤️', class: 'btn btn-light' %>
+              <%= submit_tag '❤️', class: 'favorites-icon' %>
             <% end %>
         </div>
       </div>
