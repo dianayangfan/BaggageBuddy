@@ -1,28 +1,35 @@
 <div class="form-container form-small">
-    <h2>Sign up</h2>
+  <h2>Sign up</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-      <div class="form-inputs form-text-p">
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
-     <div class="two-buttons">
+    <div class="form-inputs form-text-p">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label: "Email",
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: true,
+                  label: "Password",
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label: "Password confirmation",
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="two-buttons">
       <div class="form-actions button">
+        <i class="fa-solid fa-user"></i>
         <%= f.button :submit, "Sign up" %>
       </div>
-    <% end %>
+    </div>
 
-        <a class="button btn btn-primary" href="<%= new_user_session_path %>"><i class="fa-solid fa-user mr-2"></i> Login</a>
-</div>
+    <div class="links shared-link">
+      <%= link_to "Already a member? Sign in HERE!", new_user_session_path %>
+    </div>
+  <% end %>
 </div>

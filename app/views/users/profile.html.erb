@@ -1,8 +1,9 @@
-<h1>Welcome <%= @user.email %>!</h1>
+<div class="form-container form-small">
 
+<h2>Welcome <%= @user.email %>!</h2>
 <p>Edit my details: <%= link_to "Edit", edit_user_registration_path %></p>
+<p><strong>My favorites</strong></p>
 
-<p><strong>Favorites</strong></p>
 <ul class='list-group'>
   <% @user.favorites.each do |favorite| %>
     <li class="list-group-item">
@@ -11,3 +12,5 @@
     </li>
   <% end %>
 </ul>
+
+</div>
