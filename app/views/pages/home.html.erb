@@ -16,7 +16,8 @@
   <div data-target="search-dropdown.results" class="dropdown-menu show"></div>
 </div>
 
-<div id="infoCardCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false">
+<%# CAROUSEL %>
+<div id="infoCardCarousel" class="carousel slide" data-pause="false">
   <div class="carousel-inner">
     <% @airlines.each_slice(3).with_index do |airline_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
@@ -26,7 +27,11 @@
               <div class="col-md-4 d-flex align-items-stretch">
                 <div class="info-card policy-card ml-3">
                   <div class="airline-logo">
-                    <%= image_tag airline.logo.attached? ? url_for(airline.logo) : 'klm.jpeg', alt: "#{airline.name} Logo" %>
+                    <% if airline.logo.attached? %>
+                      <%= cl_image_tag airline.logo.key, alt: "#{airline.name} Logo" %>
+                    <% else %>
+                      <%= image_tag 'klm.jpeg', alt: "#{airline.name} Logo" %>
+                    <% end %>
                   </div>
                   <div class="airline-contact">
                     <h2><%= airline.name %></h2>
