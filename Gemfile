@@ -23,8 +23,13 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
+# gem files for Chatbot
+gem "ruby-openai"
+gem "actioncable-enhanced-postgresql-adapter"
+gem "solid_queue"
+gem 'neighbor'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
