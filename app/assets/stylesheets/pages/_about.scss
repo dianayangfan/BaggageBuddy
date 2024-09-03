@@ -1,0 +1,38 @@
+.pages-about-container h2 {
+  font-size: 2em;
+  color: #002D73;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.div-1 {
+  flex: 0 0 30%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 30px!important;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+}
+
+
+.div-2 {
+  flex: 0 0 30%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 30px!important;
+  overflow-y: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-right:20px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 400px;
+  width: 400px;
+}
