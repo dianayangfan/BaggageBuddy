@@ -139,22 +139,6 @@
   transition: transform 2s ease-in-out;
 }
 
-/* Add hover effect */
-// .info-card:hover {
-//   -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//   animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-// }
-
-// .card:hover {
-//   -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//   animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-// }
-
-// .policy-card:hover {
-//   -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//   animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-// }
-
 .info-card:hover {
   border: 1px solid #14A0E6;
 }
