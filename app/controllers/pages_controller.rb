@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @airlines = Airline.all
   end
+
+  def about
+  end
 end

@@ -18,9 +18,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
 
+  # Chatbot
+  resources :questions, only: [:index, :create]
+
   get 'profile', to: "users#profile", as: :user_profile
   get 'favorites', to: "favorites#profile", as: :favorites_profile
 
   get 'search_airlines', to: "airlines#search", as: 'search_airlines'
   get 'search_suggestions', to: "airlines#search_suggestions"
+
+  get 'about', to: "pages#about", as: :about
 end

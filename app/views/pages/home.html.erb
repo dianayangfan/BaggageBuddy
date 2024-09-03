@@ -16,8 +16,7 @@
   <div data-target="search-dropdown.results" class="dropdown-menu show"></div>
 </div>
 
-<%# CAROUSEL %>
-<div id="infoCardCarousel" class="carousel slide" data-ride="carousel">
+<div id="infoCardCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false">
   <div class="carousel-inner">
     <% @airlines.each_slice(3).with_index do |airline_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
@@ -51,7 +50,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 
 <%# SUBSCRIBE SECTION %>
 <div class="subscribe-container">
