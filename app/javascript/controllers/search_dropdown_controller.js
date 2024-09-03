@@ -10,6 +10,7 @@ export default class extends Controller {
 
    search() {
     const query = this.queryTarget.value;
+    console.log("Query:", query);
     if (query.length < 1) {
       this.resultsTarget.innerHTML = "";
       this.resultsTarget.style.display = "none"; // Hide dropdown if query is too short
@@ -17,8 +18,12 @@ export default class extends Controller {
     }
 
     fetch(`/search_suggestions?query=${query}`)
-      .then(response => response.json())
+    .then(response => {
+      console.log("Raw response:", response);
+      return response.json();
+    })
       .then(data => {
+        console.log("Data received:", data);
         if (data.length > 0) {
           this.resultsTarget.innerHTML = data.map(airline => `
             <div class="dropdown-item" data-action="click->search-dropdown#select" data-id="${airline.id}">

@@ -187,6 +187,10 @@
   justify-self: start; /* Align the first element to the start (left) */
 }
 
+.flex-container > :last-child {
+  justify-self: end; /* Align the last element to the end (right) */
+}
+
 // CAROUSEL
 
 .carousel-item {
