@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get 'search_suggestions', to: "airlines#search_suggestions"
 
   get 'about', to: "pages#about", as: :about
+
 end

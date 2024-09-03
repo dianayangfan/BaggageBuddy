@@ -83,7 +83,7 @@ easyjet = Airline.find_by(name: 'EasyJet')
 wizzair = Airline.find_by(name: 'WizzAir')
 lufthansa = Airline.find_by(name: 'Lufthansa')
 
-Policy.create([
+all_polcies = [
   # KLM Policies
   {
     airline_id: klm.id,
@@ -243,6 +243,11 @@ Policy.create([
     title: "Pets",
     content: "Small pets can travel in the cabin in an approved carrier that fits under the seat. The maximum weight, including the carrier, is 8 kg. Larger pets can travel in the hold in an appropriate pet crate."
   }
-])
+]
+
+all_polcies.each do |policy|
+  Policy.create(policy)
+  sleep(10)
+end
 
 puts "Policies have been created for each airline ✅"
