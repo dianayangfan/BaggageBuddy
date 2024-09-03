@@ -44,14 +44,21 @@
   height: 50px;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
 }
 
 .button:hover {
   background-color: #1185c0;
+  text-decoration: none;
+  color: white;
   }
 
 .btn {
+  color: white;
+}
+
+.btn:hover {
   color: white;
 }
 
@@ -65,5 +72,9 @@
 
 
 .button-item a {
-  color: white !important
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
