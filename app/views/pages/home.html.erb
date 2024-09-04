@@ -4,44 +4,45 @@
 
 <%# SEARCH SECTION %>
 <div data-controller="search-dropdown">
-  <%= form_with url: search_airlines_path, method: :get, class: "d-flex" do %>
+  <%= form_with url: search_airlines_path, method: :get, class: "d-flex search-form" do %>
     <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Enter airline name",
+          autocomplete: "off",
           data: { action: "input->search-dropdown#search", target: "search-dropdown.query" }
     %>
     <%= submit_tag "Search", name: "", class: "button-pink" %>
+    <div data-target="search-dropdown.results" class="dropdown-menu show dropdown-fix"></div>
   <% end %>
-  <div data-target="search-dropdown.results" class="dropdown-menu show"></div>
 </div>
 
 
 
 <%# CAROUSEL %>
 <div id="infoCardCarousel" class="carousel slide" data-pause="false">
-  <div class="carousel-inner">
+  <div class="carousel-inner" id="carouselInner">
     <% @airlines.each_slice(3).with_index do |airline_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
         <div class="container">
           <div class="row justify-content-center">
             <% airline_group.each do |airline| %>
               <div class="col-md-4 d-flex align-items-stretch">
-              <%= link_to airline_path(airline) do %>
-                <div class="info-card policy-card ml-3">
-                  <div class="airline-logo">
-                    <% if airline.logo.attached? %>
-                      <%= cl_image_tag airline.logo.key, alt: "#{airline.name} Logo" %>
-                    <% else %>
-                      <%= image_tag 'klm.jpeg', alt: "#{airline.name} Logo" %>
-                    <% end %>
+                <%= link_to airline_path(airline) do %>
+                  <div class="info-card policy-card ml-3">
+                    <div class="airline-logo">
+                      <% if airline.logo.attached? %>
+                        <%= cl_image_tag airline.logo.key, alt: "#{airline.name} Logo" %>
+                      <% else %>
+                        <%= image_tag 'klm.jpeg', alt: "#{airline.name} Logo" %>
+                      <% end %>
+                    </div>
+                    <div class="airline-contact">
+                      <h2><%= airline.name %></h2>
+                      <p><strong>Contact Info:</strong> <a href="<%= airline.contact_info %>">Click here</a></p>
+                      <p><%= airline.description %></p>
+                    </div>
                   </div>
-                  <div class="airline-contact">
-                    <h2><%= airline.name %></h2>
-                    <p><strong>Contact Info:</strong> <a href="<%= airline.contact_info %>"><%= airline.contact_info %></a></p>
-                    <p><%= airline.description %></p>
-                  </div>
-                </div>
                 <% end %>
               </div>
             <% end %>
@@ -59,6 +60,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
 
 <%# SUBSCRIBE SECTION %>
 <div class="subscribe-container">
