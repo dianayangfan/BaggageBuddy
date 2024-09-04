@@ -42,7 +42,6 @@
 </div>
 
 <%# SMALL CARDS FOR CATEGORIES %>
-
 <div class="policy-container">
   <% @special_policy.each do |policy| %>
     <div class="policy-card">
@@ -54,7 +53,15 @@
           <p><%= policy.content %></p>
         </div>
         <div class="policy-icon">
-          <%= image_tag 'dog.png', alt: 'Icon' %>
+          <% image_name = case policy.title
+                         when "For Kids"
+                           "baby-carriage.png"
+                         when "Sports Equipment"
+                           "sport.png"
+                         when "Pets"
+                           "dog.png"
+                         end %>
+          <%= image_tag image_name, alt: 'Icon' %>
           <%= form_with url: airline_policy_favorites_path(@airline, policy), method: :post do %>
             <button type="submit" class="favorites-icon">
               <i class="fa-regular fa-heart fa-2x"></i>
