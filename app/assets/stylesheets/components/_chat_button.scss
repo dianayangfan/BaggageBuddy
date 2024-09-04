@@ -1,0 +1,33 @@
+#chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  background-color: #14A0E6;
+  color: white;
+  font-size: 25px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  z-index: 1000; /* ensures button is on top of other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatButton:hover {
+  background-color: #0b5c85;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-dialog {
+  position: absolute;
+  bottom: 40px;
+  right: 85px;
+  margin: 0;
+}
