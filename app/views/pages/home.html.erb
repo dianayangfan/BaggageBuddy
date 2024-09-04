@@ -16,6 +16,8 @@
   <div data-target="search-dropdown.results" class="dropdown-menu show"></div>
 </div>
 
+
+
 <%# CAROUSEL %>
 <div id="infoCardCarousel" class="carousel slide" data-pause="false">
   <div class="carousel-inner">
@@ -25,6 +27,7 @@
           <div class="row justify-content-center">
             <% airline_group.each do |airline| %>
               <div class="col-md-4 d-flex align-items-stretch">
+              <%= link_to airline_path(airline) do %>
                 <div class="info-card policy-card ml-3">
                   <div class="airline-logo">
                     <% if airline.logo.attached? %>
@@ -39,6 +42,7 @@
                     <p><%= airline.description %></p>
                   </div>
                 </div>
+                <% end %>
               </div>
             <% end %>
           </div>

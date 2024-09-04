@@ -94,6 +94,10 @@
   height: 40vh;
 }
 
+.subscribe-form input[type="email"] {
+  padding: 12px 30px;
+}
+
 // CAROUSEL
 @-webkit-keyframes shadow-drop-2-center {
   0% {
@@ -126,7 +130,7 @@
 }
 
 .carousel-item {
-  transition: transform 2s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .info-card:hover {

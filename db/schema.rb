@@ -77,7 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_120747) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.vector "embedding", limit: 1536
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
