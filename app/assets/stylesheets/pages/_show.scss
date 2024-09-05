@@ -18,7 +18,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 400px;
   height: 400px;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -81,7 +81,7 @@
   height: 470px;
   padding: 20px;
   border-radius: 40px;
-  background: rgb(2,0,36);
+  background: #14A0E6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   display: flex;
@@ -146,32 +146,43 @@
   max-width: 400px;
   height: 470px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
+  flex-direction: column; /* Ensure the children are stacked vertically */
 
-  img {
-    max-width: 250px;
-    height: auto;
-    border-radius: 20px;
-  }
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .airline-contact {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   h2 {
     text-align: center;
+    margin-bottom: 15px;
   }
   a {
     color: #14A0E6;
     text-decoration: none;
+    padding-bottom: 10px;
   }
+  p {
+    margin-top: 10px;
+  }
+}
+
+
+.airline-logo {
+  height: 150px;
 }
 
 .airline-logo img {
   width: 200px;
+  max-width: 250px;
+  height: auto;
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .flex-container {

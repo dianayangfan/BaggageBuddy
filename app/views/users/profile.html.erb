@@ -1,13 +1,13 @@
 <div class="profile-container">
 
   <div class="user">
-    <h2>Welcome <%= @user.email %>!</h2>
+    <h2>Hi, Katalin!</h2>
     <%= image_tag 'avatar.jpg', alt: 'Avatar', class: 'avatar' %>
 
     <div class="user-details">
-      <p><strong>Email:</strong> user@example.com</p>
-      <p><strong>Password:</strong> *********</p>
-      <p><strong>Phone Number:</strong> (123) 456-7890</p>
+      <p><strong>Name: </strong> Katalin </p>
+      <p><strong>Surname: </strong> Smith </p>
+      <p><strong>Email:</strong> kathy.smith@gmail.com</p>
     </div>
 
 
@@ -17,11 +17,13 @@
     <div class="favorites">
       <ul class='list-group'>
         <% @user.favorites.each do |favorite| %>
-          <li class="list-group-item card-hover">
-          <h2><%= favorite.policy.airline.name %> | <%= favorite.policy.title %></h2>
-          <p><%= favorite.policy.content %></p>
-          <%= button_to raw('<i class="fa-regular fa-trash-can"></i>'), airline_policy_favorite_path(favorite.policy.airline, favorite.policy, favorite), method: :delete, class: 'profile-icon', data: { confirm: 'Are you sure?' } %>
-          </li>
+          <%= link_to airline_path(favorite.policy.airline) do %>
+            <li class="list-group-item card-hover">
+            <h2><%= favorite.policy.airline.name %> | <%= favorite.policy.title %></h2>
+            <p><%= favorite.policy.content %></p>
+            <%= button_to raw('<i class="fa-regular fa-trash-can"></i>'), airline_policy_favorite_path(favorite.policy.airline, favorite.policy, favorite), method: :delete, class: 'profile-icon', data: { confirm: 'Are you sure?' } %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
