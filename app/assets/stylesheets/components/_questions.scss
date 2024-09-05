@@ -14,7 +14,7 @@
   }
 
   #questions {
-    height: 100%;
+    height: 450px;
     overflow: scroll;
     padding: 1rem;
   }
@@ -29,6 +29,7 @@
     margin-bottom: 1rem;
     padding: 0.5rem;
     max-width: 70%;
+    border-radius: 40px;
     width: fit-content;
     word-wrap: break-word;
   }
@@ -55,9 +56,9 @@
 }
  #new-question-button {
   background-color: #F50071;
-  border-radius: 5px;
+  border-radius: 10px;
  }
 
  #question_user-question {
-  border-radius: 5px;
+  border-radius: 40px;
  }
