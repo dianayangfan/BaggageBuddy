@@ -14,85 +14,12 @@ puts "Destroying existing airlines..."
 Airline.destroy_all
 
 puts "Creating airlines ✈️"
-
-airlines = [
-  {
-    name: "KLM",
-    contact_info: "https://www.klm.nl/en/contact",
-    description: "KLM is the flag carrier airline of the Netherlands, founded in 1919. It is known for being the oldest airline still operating under its original name. KLM operates a vast network of international and domestic flights, with a focus on customer service and sustainability."
-  },
-  {
-    name: "Transavia",
-    contact_info: "https://www.transavia.com/help/en-nl/contact",
-    description: "Transavia is a Dutch low-cost airline, part of the Air France-KLM Group, mainly serving leisure destinations across Europe and the Mediterranean. Known for affordable flights, it operates from hubs in Amsterdam, Rotterdam, and Eindhoven. Visit their website for more details."
-  },
-  {
-    name: "EasyJet",
-    contact_info: "https://www.easyjet.com/en/help/contact",
-    description: "EasyJet is a British low-cost airline founded in 1995. It operates on more than 1,000 routes across Europe and several other countries. The airline is known for its no-frills approach, offering affordable flights and a focus on efficiency."
-  },
-  {
-    name: "WizzAir",
-    contact_info: "https://wizzair.com/en-gb/information-and-services/contact/contact-us",
-    description: "Wizz Air is a Hungarian low-cost airline founded in 2003. It serves many destinations across Europe, as well as some in the Middle East. Wizz Air is known for its focus on Central and Eastern Europe, offering low-cost travel options with a young and efficient fleet."
-  },
-  {
-    name: "Lufthansa",
-    contact_info: "https://www.lufthansa.com/am/en/help-and-contact",
-    description: "Lufthansa is the largest German airline and, when combined with its subsidiaries, the second-largest airline in Europe. Founded in 1953, Lufthansa is a major international carrier with a global network of destinations and is known for its premium service and innovation in aviation."
-  },
-  {
-    name: "Ryanair",
-    contact_info: "https://www.ryanair.com/ie/en/useful-info/help-centre/contact-us",
-    description: "Ryanair is an Irish low-cost airline founded in 1984. It is known for offering budget-friendly flights across Europe and a few other destinations. Ryanair operates a no-frills service with a focus on low-cost travel."
-  },
-  {
-    name: "Swiss International Air Lines",
-    contact_info: "https://www.swiss.com/us/en/customer-support/contact",
-    description: "Swiss International Air Lines, commonly known as Swiss or Swissair, is the flag carrier of Switzerland. Founded in 2002 after the bankruptcy of the former national carrier, Swissair, the airline is known for its premium service, operating flights to various global destinations."
-  },
-  {
-    name: "Delta Air Lines",
-    contact_info: "https://www.delta.com/contactus/c",
-    description: "Delta Air Lines is a major American airline, with its headquarters in Atlanta, Georgia. Founded in 1925, Delta is one of the oldest airlines in the world and a founding member of the SkyTeam airline alliance."
-  },
-  {
-    name: "Qatar Airways",
-    contact_info: "https://www.qatarairways.com/en/contact-us.html",
-    description: "Qatar Airways is the state-owned flag carrier of Qatar, headquartered in Doha. Founded in 1993, it is known for its luxury service and extensive network of global routes, making it one of the leading airlines in the world."
-  },
-  {
-    name: "British Airways",
-    contact_info: "https://www.britishairways.com/contact-us",
-    description: "British Airways is the flag carrier airline of the United Kingdom, with its main hub at London Heathrow Airport. Established in 1974, it is one of the world's leading global premium airlines, known for its extensive international network and high-quality service."
-  },
-  {
-    name: "Air France",
-    contact_info: "https://www.airfrance.com/contact",
-    description: "Air France is the flag carrier of France, founded in 1933. It is a subsidiary of the Air France-KLM Group and operates flights to numerous destinations worldwide. The airline is known for its French flair in service and extensive global network."
-  },
-  {
-    name: "Virgin Atlantic",
-    contact_info: "https://www.virginatlantic.com/contact",
-    description: "Virgin Atlantic is a British airline founded in 1984 by Sir Richard Branson. It operates long-haul flights primarily from the United Kingdom to North America, the Caribbean, Africa, and Asia. The airline is known for its innovative services and vibrant brand personality."
-  },
-  {
-    name: "Aeromexico",
-    contact_info: "https://www.aeromexico.com/en-us/contact",
-    description: "Aeromexico is the flag carrier airline of Mexico, founded in 1934. It operates both domestic and international flights to destinations across the Americas, Europe, and Asia. Aeromexico is known for its commitment to service and Mexican hospitality."
-  },
-  {
-    name: "Emirates",
-    contact_info: "https://www.emirates.com/english/help/",
-    description: "Emirates is a global airline based in Dubai, United Arab Emirates. Founded in 1985, it is known for its luxurious service, cutting-edge technology, and extensive network of international destinations. Emirates is one of the largest and most recognized airlines in the world."
-  }
-]
-
-# airlines.each do |attributes|
-#   airline = Airline.find_or_create_by!(name: attributes[:name]) do |airline|
-#     airline.contact_info = attributes[:contact_info]
-#     airline.description = attributes[:description]
-#   end
+# Define airline attributes
+klm = {
+  name: "KLM",
+  contact_info: "https://www.klm.nl/en/contact",
+  description: "KLM is the flag carrier airline of the Netherlands, founded in 1919. It is known for being the oldest airline still operating under its original name. KLM operates a vast network of international and domestic flights, with a focus on customer service and sustainability."
+}
 
 transavia = {
   name: "Transavia",
@@ -117,8 +44,6 @@ lufthansa = {
   contact_info: "https://www.lufthansa.com/am/en/help-and-contact",
   description: "Lufthansa is the largest German airline and, when combined with its subsidiaries, the second-largest airline in Europe. Founded in 1953, Lufthansa is a major international carrier with a global network of destinations and is known for its premium service and innovation in aviation."
 }
-
-# ORIGINAL 5 SEEDS ABOVE, NEW ONES BELOW
 
 ryanair = {
   name: "Ryanair",
@@ -174,7 +99,7 @@ emirates = {
   description: "Emirates is a global airline based in Dubai, United Arab Emirates. Founded in 1985, it is known for its luxurious service, cutting-edge technology, and extensive network of international destinations. Emirates is one of the largest and most recognized airlines in the world."
 }
 
-
+# Create airlines and attach logos
 [klm, transavia, easyjet, wizzair, lufthansa, ryanair, swissair, delta, qatar_airways, british_airways, air_france, virgin_atlantic, aeromexico, emirates].each do |attributes|
   airline = Airline.create(attributes)
   puts "#{airline.name} has been added to Airlines. ✈️"
