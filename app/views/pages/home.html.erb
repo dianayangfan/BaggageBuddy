@@ -3,7 +3,7 @@
 </div>
 
 <%# SEARCH SECTION %>
-<div data-controller="search-dropdown">
+<div data-controller="search-dropdown" class="pls-work">
   <%= form_with url: search_airlines_path, method: :get, class: "d-flex search-form" do %>
     <%= text_field_tag :query,
           params[:query],
@@ -29,7 +29,7 @@
             <% airline_group.each do |airline| %>
               <div class="col-md-4 d-flex align-items-stretch">
                 <%= link_to airline_path(airline) do %>
-                  <div class="info-card policy-card ml-3">
+                  <div class="info-card policy-card ml-3 carouselCard">
                     <div class="airline-logo">
                       <% if airline.logo.attached? %>
                         <%= cl_image_tag airline.logo.key, alt: "#{airline.name} Logo" %>
