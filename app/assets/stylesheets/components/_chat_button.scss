@@ -1,3 +1,7 @@
+.chatbot {
+  margin-top: 27px;
+}
+
 #chatButton {
   position: fixed;
   bottom: 20px;
@@ -25,9 +29,14 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.modal-dialog {
+#chatModal .modal-dialog {
   position: absolute;
   bottom: 40px;
   right: 85px;
   margin: 0;
+  width: 420px;
+}
+
+#chatModal .modal-content {
+  border-radius: 40px;
 }
