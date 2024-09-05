@@ -14,13 +14,12 @@ puts "Destroying existing airlines..."
 Airline.destroy_all
 
 puts "Creating airlines ✈️"
-
+# Define airline attributes
 klm = {
   name: "KLM",
   contact_info: "https://www.klm.nl/en/contact",
   description: "KLM is the flag carrier airline of the Netherlands, founded in 1919. It is known for being the oldest airline still operating under its original name. KLM operates a vast network of international and domestic flights, with a focus on customer service and sustainability."
 }
-# klm.logo.attach(io: File.open('app/assets/images/seeds/klm-4.svg'), filename: 'klm-4.svg', content_type: 'image/svg+xml')
 
 transavia = {
   name: "Transavia",
@@ -45,8 +44,6 @@ lufthansa = {
   contact_info: "https://www.lufthansa.com/am/en/help-and-contact",
   description: "Lufthansa is the largest German airline and, when combined with its subsidiaries, the second-largest airline in Europe. Founded in 1953, Lufthansa is a major international carrier with a global network of destinations and is known for its premium service and innovation in aviation."
 }
-
-# ORIGINAL 5 SEEDS ABOVE, NEW ONES BELOW
 
 ryanair = {
   name: "Ryanair",
@@ -102,7 +99,7 @@ emirates = {
   description: "Emirates is a global airline based in Dubai, United Arab Emirates. Founded in 1985, it is known for its luxurious service, cutting-edge technology, and extensive network of international destinations. Emirates is one of the largest and most recognized airlines in the world."
 }
 
-
+# Create airlines and attach logos
 [klm, transavia, easyjet, wizzair, lufthansa, ryanair, swissair, delta, qatar_airways, british_airways, air_france, virgin_atlantic, aeromexico, emirates].each do |attributes|
   airline = Airline.create(attributes)
   puts "#{airline.name} has been added to Airlines. ✈️"
@@ -158,7 +155,7 @@ easyjet = Airline.find_by(name: 'EasyJet')
 wizzair = Airline.find_by(name: 'WizzAir')
 lufthansa = Airline.find_by(name: 'Lufthansa')
 
-all_polcies = [
+all_policies = [
   # KLM Policies
   {
     airline_id: klm.id,
@@ -320,9 +317,21 @@ all_polcies = [
   }
 ]
 
-all_polcies.each do |policy|
-  Policy.create(policy)
-  sleep(10)
+all_policies.each do |policy_data|
+  puts("Creating policy: #{policy_data[:title]}")
+  Policy.create!(title: policy_data[:title], airline_id: policy_data[:airline_id]) do |p|
+    p.category = policy_data[:category]
+    p.content = policy_data[:content]
+  end
+  sleep(40)
+  # begin
+  #   policy.send(:set_embedding)
+  # rescue Faraday::TooManyRequestsError => e
+  #   Rails.logger.warn("Rate limit hit: #{e.message}. Retrying after delay...")
+  #   sleep(5) # Increase delay if necessary
+  #   retry
+  # end
 end
 
-puts "Policies have been created for each airline ✅"
+Rails.logger.info("Finished creating baggage policies 📃")
+puts "Baggage policies have been added to the database. 🎉"

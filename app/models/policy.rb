@@ -1,3 +1,5 @@
+require 'faraday'
+
 class Policy < ApplicationRecord
   belongs_to :airline
   has_many :favorites, dependent: :destroy
@@ -9,10 +11,11 @@ class Policy < ApplicationRecord
 
   def set_embedding
     client = OpenAI::Client.new
-    max_retries = 3
+    max_retries = 5
     retries = 0
 
     begin
+      # Rails.logger.info("Setting embedding for policy ID: #{id}, Title: #{title}")
       response = client.embeddings(
         parameters: {
           model: 'text-embedding-3-small',
@@ -21,15 +24,21 @@ class Policy < ApplicationRecord
       )
       embedding = response['data'][0]['embedding']
       update(embedding: embedding)
-    rescue Faraday::ClientError => e
-      if e.response[:status] == 429 && retries < max_retries
+      # Rails.logger.info("Successfully set embedding for policy ID: #{id}, Title: #{title}")
+    rescue Faraday::TooManyRequestsError => e
+      if retries < max_retries
         retries += 1
-        sleep_time = (2 ** retries) * 5 # Exponential backoff: 5, 10, 20 seconds
-        Rails.logger.warn("Rate limit exceeded. Retrying in #{sleep_time} seconds...")
+        sleep_time = case retries
+                    when 1 then 40
+                    when 2 then 80
+                    when 3 then 120
+                    else 120 # Keep the sleep time at 120 seconds for retries 4 and 5
+                    end
+        puts "Rate limit exceeded for policy ID: #{id}, Title: #{title}. Retrying in #{sleep_time} seconds..."
         sleep(sleep_time)
         retry
       else
-        Rails.logger.error("Failed to fetch embedding: #{e.message}")
+        puts "Rate limit exceeded for policy ID: #{id}, Title: #{title}. Max retries reached. Skipping..."
         raise
       end
     end
