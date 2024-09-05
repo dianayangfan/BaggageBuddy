@@ -1,8 +1,17 @@
 class ChatbotJob < ApplicationJob
   queue_as :default
 
+  RATE_LIMIT = 5 # Number of allowed requests
+  RATE_LIMIT_PERIOD = 60 # Time period in seconds
+
   def perform(question)
     @question = question
+
+    if rate_limited?
+      Rails.logger.error("Rate limit exceeded for user #{@question.user.id}")
+      return
+    end
+
     begin
       chatgpt_response = client.chat(
         parameters: {
@@ -59,5 +68,23 @@ class ChatbotJob < ApplicationJob
       :embedding, question_embedding,
       distance: "euclidean"
     ).first(3) # you may want to add .first(3) here to limit the number of results
+  end
+
+  def rate_limited?
+    redis = Redis.new
+    user_id = @question.user.id
+    key = "user:#{user_id}:requests"
+
+    current_count = redis.get(key).to_i
+
+    if current_count >= RATE_LIMIT
+      true
+    else
+      redis.multi do
+        redis.incr(key)
+        redis.expire(key, RATE_LIMIT_PERIOD) if current_count == 0
+      end
+      false
+    end
   end
 end
