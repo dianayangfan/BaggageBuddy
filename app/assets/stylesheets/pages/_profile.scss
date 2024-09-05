@@ -59,7 +59,7 @@ html, body {
   align-items: center;
   position: relative;
   background-color: #f9f9f9;
-  border-radius: 40px;
+  border-radius: 40px!important;
   height: 250px;
 
   h2 {
@@ -105,11 +105,15 @@ html, body {
 }
 
 
+.card-hover {
+  transform: scale(0.98);
+
+}
 
 .card-hover:hover {
   border: 1px solid #14A0E6;
-  border-radius: 40px;
-  transform: scale(1.015);
+  // border-radius: 40px;
+  transform: scale(1);
   filter: brightness(1.3);
 }
 
